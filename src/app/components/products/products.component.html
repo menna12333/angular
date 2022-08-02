@@ -1,0 +1,79 @@
+<button class="btn btn-success" (click)="getAllCat()">Categories</button>
+<button class="btn btn-warning ms-5" [routerLink]="['/newProduct']">Add Product</button>
+<table class="table text-center mb-5">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Details</th>
+            <th scope="col">Img</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">CateogryID</th>
+            <th scope="col">Count</th>
+            <th scope="col">Add To Cart</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of productListCat ; let i = index" [hidden]="item.Quantity==0" [ngClass]="{'bg-warning':item.Quantity == 1 , 'text-danger':item.Quantity == 1 , 'text-primary':item.Quantity > 1}">
+            <td>{{i+1}}</td>
+            <td>{{item.Name}}</td>
+            <td>{{item.Price|currency:'Egy':'code'}}</td>
+            <!-- <td><button class="btn btn-danger" (click)="openProductDetails(item.ID)">Details</button></td> -->
+            <td><button class="btn btn-secondary" [routerLink]="['/products',item.ID]">Details</button></td>
+            <td><img width="20%" [src]="item.Img"></td>
+            <!-- <td>{{item.Quantity}}</td> -->
+            <ng-container [ngSwitch]="item.Quantity">
+                <ng-container *ngSwitchCase="0">Out Of Stock</ng-container>
+                <ng-container *ngSwitchCase="1">Last Item</ng-container>
+                <ng-container *ngSwitchCase="2">Last Two Item</ng-container>
+                <ng-container *ngSwitchDefault>{{item.Quantity}}</ng-container>
+            </ng-container>
+            <td>{{item.CateogryID}}</td>
+
+            <td><input type="number" name="count" #itemCount></td>
+            <td><button class="btn btn-primary" (click)="increaseQuantity(item , itemCount.value)" (click)="updateTotalPrice(item.Price , itemCount.value)" (click)="getCatData(item.Name , item.Price , itemCount.value)">Add To Cart</button></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<!-- <table class="table text-center mb-5">
+  <thead class="table-dark">
+      <tr>
+          <td>Name</td>
+          <td>Price</td>
+          <td>Count</td>
+          <td>Remove</td>
+      </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let z of catData">
+      <td>{{z.Name}}</td>
+      <td>{{z.Price|currency:'EGP '}}</td>
+      <td>{{z.Count}}</td>
+      <td><button class="btn btn-danger">Remove</button></td>
+    </tr>
+  </tbody>
+  <tfoot class="table-dark">
+    <tr>Total: <td>{{totalPrice|currency:'EGP '}}</td></tr>
+  </tfoot>
+</table> -->
+
+<!-- <div class="container-fluid mt-5">
+  <div class="row">
+    <div class="col-4">
+      <div class="card" style="width: 18rem;" appProductCard>
+          <img src="{{storeInfoClass.logo}}" *ngIf="showImage" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">{{storeInfoClass.name}}</h5>
+            <h6 class="card-title text-danger" *ngIf="showMsg">{{"Thanks for purchasing from our Store " + clientName}}</h6>
+            <ul>
+              <li *ngFor="let i of storeInfoClass.branches">{{i}}</li>
+            </ul>
+            <button class="btn btn-success" (click)="toggle()">Buy</button>
+          </div>
+        </div>
+    </div>
+  </div>
+</div> -->

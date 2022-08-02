@@ -1,0 +1,41 @@
+<!-- <button class="btn btn-danger" (click)="addNewProduct()">Add New Product</button> -->
+
+<div class="container-fluid">
+    <form #newProductForm="ngForm" (ngSubmit)="addNewProduct()">
+        <div class=" row mb-1">
+
+            <div class="col-6 ">
+                <input #newProductNameInput="ngModel" type="text" class="form-control" name="newProductName" id="newProductName" [(ngModel)]="newProduct.Name" required pattern="[A-Za-z]{3,10}" placeholder="Enter product name">
+                <div class="alert alert-danger" [hidden]="newProductNameInput.valid || newProductNameInput.untouched">
+                    <small *ngIf="newProductNameInput.errors?.['required']">
+                  required product
+              </small>
+                    <small *ngIf="newProductNameInput.errors?.['pattern']">
+                  Product Name must be 3 letters at least
+              </small>
+                </div>
+            </div>
+
+            <div class="col-6 mb-3 ">
+
+                <input type="number" class="form-control" name="newProductQuant" id="newProductQuant" required [(ngModel)]="newProduct.Quantity" placeholder="Enter product quantity">
+            </div>
+        </div>
+        <div class="mb-3">
+
+            <input type="number" class="form-control " name="newProductPrc" id="newProductPrc" required [(ngModel)]="newProduct.Price" placeholder="Enter product price">
+        </div>
+
+        <div class="mb-3">
+
+            <select class="form-control" name="newProductCat" id="newProductCat" required [(ngModel)]="newProduct.CateogryID" placeholder="Select product category">
+        <option *ngFor="let cat of catList" [value]="cat.ID">
+            {{cat.Name}}
+        </option>
+      </select>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary" [disabled]="newProductForm.invalid">Add New Product</button>
+    </form>
+</div>
