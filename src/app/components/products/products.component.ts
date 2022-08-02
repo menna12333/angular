@@ -14,7 +14,7 @@ import { ProductService } from 'src/app/service/product.service';
 })
 export class ProductsComponent implements OnInit , OnChanges {
 
-  clientName:string = "Ibrahim Saad";
+  clientName:string = "menna elsayed";
   // productList:IProduct[];
   storeInfoClass : Store;
   dateNow:Date = new Date();

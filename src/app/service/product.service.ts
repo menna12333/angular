@@ -2,22 +2,22 @@ import { Injectable } from '@angular/core';
 import { IProduct } from '../Models/iproduct';
 
 @Injectable({
-  providedIn: 'root' //نستخدمها على مستوى الأبليكيشن كامل
+  providedIn: 'root' //
 })
 export class ProductService {
 
   productList:IProduct[];
   constructor() {
     this.productList=[
-      {ID:1 , Name:'Samsung' , Quantity:10 , Price:10000, Img:'../../../assets/Natural.jpg' , CateogryID:1},
-      {ID:2 , Name:'Iphone' , Quantity:1 , Price:30000 , Img:'../../../assets/Natural.jpg' , CateogryID:1},
-      {ID:3 , Name:'Oppo' , Quantity:0 , Price:7000 , Img:'../../../assets/Natural.jpg' , CateogryID:1},
-      {ID:10 , Name:'Lenovo' , Quantity:2 , Price:11000 , Img:'../../../assets/Natural.jpg' , CateogryID:2},
-      {ID:20 , Name:'HP' , Quantity:7 , Price:12000 , Img:'../../../assets/Natural.jpg' , CateogryID:2},
-      {ID:30 , Name:'Dell' , Quantity:1 , Price:15000 , Img:'../../../assets/Natural.jpg' , CateogryID:2},
-      {ID:100 , Name:'Lg' , Quantity:0 , Price:5000 , Img:'../../../assets/Natural.jpg' , CateogryID:3},
-      {ID:200 , Name:'Samsung' , Quantity:3 , Price:7000 , Img:'../../../assets/Natural.jpg' , CateogryID:3},
-      {ID:300 , Name:'Toshiba' , Quantity:2 , Price:9000 , Img:'../../../assets/Natural.jpg' , CateogryID:3}
+      {ID:1 , Name:'Samsung' , Quantity:10 , Price:10000, Img:'../../../assets/1.jpeg' , CateogryID:1},
+      {ID:2 , Name:'Iphone' , Quantity:1 , Price:30000 , Img:'../../../assets/1.jpeg' , CateogryID:1},
+      {ID:3 , Name:'Oppo' , Quantity:0 , Price:7000 , Img:'../../../assets/1.jpeg' , CateogryID:1},
+      {ID:10 , Name:'Lenovo' , Quantity:2 , Price:11000 , Img:'../../../assets/1.jpeg' , CateogryID:2},
+      {ID:20 , Name:'HP' , Quantity:7 , Price:12000 , Img:'../../../assets/1.jpeg' , CateogryID:2},
+      {ID:30 , Name:'Dell' , Quantity:1 , Price:15000 , Img:'../../../assets/1.jpeg' , CateogryID:2},
+      {ID:100 , Name:'Lg' , Quantity:0 , Price:5000 , Img:'../../../assets/1.jpeg' , CateogryID:3},
+      {ID:200 , Name:'Samsung' , Quantity:3 , Price:7000 , Img:'../../../assets/1.jpeg' , CateogryID:3},
+      {ID:300 , Name:'Toshiba' , Quantity:2 , Price:9000 , Img:'../../../assets/1.jpeg' , CateogryID:3}
     ]
   }
 
